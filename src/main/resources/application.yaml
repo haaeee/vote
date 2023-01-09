@@ -1,0 +1,35 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/vote_db;MODE=MySQL;
+    username: sa
+    driver-class-name: org.h2.Driver
+  flyway:
+    enabled: true
+
+debug: false
+# actuator endpoint all active
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# log level ????? ??
+logging:
+  level:
+    com.example.vote: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+security:
+  jwt:
+    secret-key: ${secret-key}
+    expired-time-ms: ${expired-time-ms}
