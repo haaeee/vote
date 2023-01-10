@@ -34,7 +34,7 @@ public class Agenda extends BaseEntity {
     private String content;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private AgendaStatus agendaStatus;
 
     @OneToOne(mappedBy = "agenda")
     private Issue issue;
